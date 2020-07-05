@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import LinkForm from './LinkForm'
+import TodoForm from './TodoForm'
 import TodoServices from '../services/TodoServices';
 import { toast } from 'react-toastify';
 
@@ -47,7 +47,7 @@ const Todos = () => {
   return (
     <div>
       <div className="col-md-12 p-2">
-        <LinkForm {...{addTodo, currentId, todos}}/>
+        <TodoForm {...{addTodo, currentId, todos}}/>
       </div>
       <div className="col-md-12 p-2">
         {todos.map((todo) => (
