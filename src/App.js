@@ -1,20 +1,34 @@
 import React from 'react';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
-import Links from './components/Links';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import Todos from './pages/Todos';
+import Login from './pages/Login';
+import SingUp from './pages/SingUp';
 
+const App = () => (
+  <Router>
+    <Switch>
+      <Route
+        path="/todos"
+        exact
+        component={Todos}
+      />
+      <Route
+        path="/"
+        exact
+        component={Login}
+      />
+      <Route
+        path="/singup"
+        exact
+        component={SingUp}
+      />
+    </Switch>
+  </Router>
+);
 
-function App() {
-  return (
-    <div className="container p-4">
-      <div className="row">
-        <Links/>
-      </div>
-      <ToastContainer/>
-    </div>
-  );
-}
-
-export default App;
+export default  App;

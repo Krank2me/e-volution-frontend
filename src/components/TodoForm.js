@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TodoServices from '../services/TodoServices';
 
-const LinkForm = (props) => {
+const TodoForm = (props) => {
 
   const initialStateValues = {
     name: '',
@@ -18,21 +18,21 @@ const LinkForm = (props) => {
   }
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
-    //console.log(values);
-    props.addTodo(values);
+
+    const user = JSON.parse(localStorage.getItem('authUser'));
+    props.addTodo({...values, uid: user.uid});
     setValues({...initialStateValues});
   }
 
   const getTodosByid = async (id) => {
     const response = await TodoServices.getTodoById(id);
-    console.log('*** getTodosByid: ', response.data);
     setValues({...response.data})
   };
 
   const getPriorities = async () => {
     const response = await TodoServices.getPriorities();
-    console.log('*** getTodosByid: ', response.data);
     setPriorities(response.data)
   };
 
@@ -69,8 +69,6 @@ const LinkForm = (props) => {
         </div>
         <select name="priority" onChange={handleInputChange} className="form-control">
           {priorities.map(priority => {
-            console.log('*** values: ', values);
-
             return (
             <option
               selected={values.priority === priority.id}
@@ -103,4 +101,4 @@ const LinkForm = (props) => {
   )
 };
 
-export default LinkForm;
+export default TodoForm;

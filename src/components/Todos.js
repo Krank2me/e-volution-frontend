@@ -3,14 +3,14 @@ import LinkForm from './LinkForm'
 import TodoServices from '../services/TodoServices';
 import { toast } from 'react-toastify';
 
-const Links = () => {
+const Todos = () => {
 
   const [todos, setTodos] = useState([]);
   const [currentId, setCurrentId] = useState('');
 
   const getTodos = async () => {
-    const response = await TodoServices.getTodos();
-    console.log('*** responseData: ', response.data);
+    const user = JSON.parse(localStorage.getItem('authUser'));
+    const response = await TodoServices.getTodos(user.uid);
     setTodos(response.data);
   };
 
@@ -33,7 +33,6 @@ const Links = () => {
     const response = await TodoServices.updateTodo(todoObject);
     toast('Todo updated', {type: 'info', autoClose: 2000});
     setCurrentId('');
-    console.log('*** responseData: ', response.data);
   };
 
   const deleteTodo = async (id) => {
@@ -71,4 +70,4 @@ const Links = () => {
   );
 }
 
-export default Links;
+export default Todos;

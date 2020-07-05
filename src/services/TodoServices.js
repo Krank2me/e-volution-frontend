@@ -1,7 +1,7 @@
 import http from "../http-common";
 
-const getTodos = () => {
-  return http.get("/getAll");
+const getTodos = (uid) => {
+  return http.get(`/getAll?uid=${uid}`);
 };
 
 const getTodoById = id => {
