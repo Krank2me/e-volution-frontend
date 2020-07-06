@@ -22,7 +22,7 @@ const Navbar = (props) => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <Link className="navbar-brand" to="/">Todo</Link>
+      <Link className="navbar-brand" to="/">Todo e-volution</Link>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -44,7 +44,6 @@ const Navbar = (props) => {
               )
               : null
           }
-
         </ul>
       </div>
       </nav>

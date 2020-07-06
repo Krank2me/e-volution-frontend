@@ -47,7 +47,7 @@ const SingUp = (props) => {
 
         <div className="form-group input-group col-md-6 col-lg-12">
           <div className="input-group-text bg-light">
-            <i className="material-icons">person</i>
+            <i className="material-icons">lock_outline</i>
           </div>
           <input type="password"
             className="form-control"
