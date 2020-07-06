@@ -1,28 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+  const [isLogin, setIsLogin] = useState(false);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('authUser'));
+    if (user && user.uid) {
+      setIsLogin(true);
+    } else {
+      setIsLogin(false);
+    }
+  },[props]);
+
+  const onLogout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem('authUser');
+    props.history.push('/');
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a className="navbar-brand" href="#">Todo</a>
+      <Link className="navbar-brand" to="/">Todo</Link>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
 
       <div className="collapse navbar-collapse" id="navbarColor02">
-        <ul className="navbar-nav mr-auto">
+        <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <a className="nav-link" href="#">Login</a>
+            <Link className="nav-link" to="/">Login</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">Sing up</a>
+            <Link className="nav-link" to="/singup">Sing up</Link>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Logout</a>
-          </li>
+          {
+            isLogin
+              ? (
+                <li className="nav-item">
+                  <button type="button" className="btn btn-primary" onClick={onLogout}>Logout</button>
+                </li>
+              )
+              : null
+          }
+
         </ul>
       </div>
       </nav>
   );
 }
 
-export default Navbar;
+export default withRouter(Navbar);

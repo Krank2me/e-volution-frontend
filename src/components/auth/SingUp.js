@@ -31,35 +31,38 @@ const SingUp = (props) => {
   }
 
   return (
-    <form className="card card-body border-primary" onSubmit={handleSubmit}>
-      <div className="form-group input-group col-md-6 col-lg-12">
-        <div className="input-group-text bg-light">
-          <i className="material-icons">person</i>
+    <div className="p-4">
+      <form className="container card card-body border-primary col-md-4 mt-4" onSubmit={handleSubmit}>
+        <div className="form-group input-group col-md-6 col-lg-12">
+          <div className="input-group-text bg-light">
+            <i className="material-icons">person</i>
+          </div>
+          <input type="email"
+            className="form-control"
+            placeholder="mail"
+            name="email"
+            onChange={handleChange}
+          />
         </div>
-        <input type="email"
-          className="form-control"
-          placeholder="mail"
-          name="email"
-          onChange={handleChange}
-        />
-      </div>
 
-      <div className="form-group input-group col-md-6 col-lg-12">
-        <div className="input-group-text bg-light">
-          <i className="material-icons">person</i>
+        <div className="form-group input-group col-md-6 col-lg-12">
+          <div className="input-group-text bg-light">
+            <i className="material-icons">person</i>
+          </div>
+          <input type="password"
+            className="form-control"
+            placeholder="password"
+            name="password"
+            onChange={handleChange}
+          />
         </div>
-        <input type="password"
-          className="form-control"
-          placeholder="password"
-          name="password"
-          onChange={handleChange}
-        />
-      </div>
 
-      <button className="btn btn-primary btn-block col-md-6 col-lg-12">
-        SingUp
-      </button>
-    </form>
+        <button className="btn btn-primary btn-block col-md-6 col-lg-12">
+          SingUp
+        </button>
+      </form>
+    </div>
+
   )
 }
 

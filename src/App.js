@@ -8,9 +8,11 @@ import {
 import Todos from './pages/Todos';
 import Login from './pages/Login';
 import SingUp from './pages/SingUp';
+import Navbar from './components/Navbar';
 
 const App = () => (
   <Router>
+    <Navbar/>
     <Switch>
       <Route
         path="/todos"

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TodoServices from '../services/TodoServices';
 
-const TodoForm = (props) => {
+const LinkForm = (props) => {
 
   const initialStateValues = {
     name: '',
@@ -60,6 +60,7 @@ const TodoForm = (props) => {
           name="name"
           onChange={handleInputChange}
           value={values.name}
+          required="true"
         />
       </div>
 
@@ -91,6 +92,7 @@ const TodoForm = (props) => {
           name="dueDate"
           onChange={handleInputChange}
           value={values.dueDate}
+          required="true"
         />
       </div>
 
@@ -101,4 +103,4 @@ const TodoForm = (props) => {
   )
 };
 
-export default TodoForm;
+export default LinkForm;

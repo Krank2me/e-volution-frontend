@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import { authLogin } from '../../services/AuthServices';
-import Navar from '../Navbar';
 
 const Login = (props) => {
 
@@ -31,9 +30,8 @@ const Login = (props) => {
   }
 
   return (
-    <React.Fragment>
-      <Navar/>
-      <form className="card card-body border-primary col-md-8" onSubmit={handleSubmit}>
+    <div className="p-4">
+      <form className="container card card-body border-primary col-md-4 mt-4" onSubmit={handleSubmit}>
 
           <div className="form-group input-group  ">
             <div className="input-group-text bg-light">
@@ -62,11 +60,11 @@ const Login = (props) => {
           </div>
 
         <div className="d-flex flex-row">
-          <button className="btn btn-primary btn-block col-md-2 ">Login</button>
+          <button className="btn btn-primary btn-block col-md-12 ">Login</button>
         </div>
 
       </form>
-    </React.Fragment>
+    </div>
   )
 }
 
